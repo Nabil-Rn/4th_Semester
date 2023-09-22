@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:week5/main.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,74 +7,96 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static const String _title = 'Demo GlobalKey';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => FirstScreen(),
-        '/Second': (context) => SecondScreen()
-      },
+      title: _title,
+
     );
   }
 }
 
-class FirstScreen extends StatelessWidget {
-  var username = "";
-  final password = 123;
 
+
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First Screen'),
+
+
+      Container(
+        padding: EdgeInsets.all(10),
+        child: TextField(
+          controller: nameController,
+          decoration: InputDecoration(
+              border: OutlineInputBorder(), labelText: 'Sign in'),
+        ),
       ),
-      body: Center(
-        children: [
-          Container(
-          child: SizedBox(
-            width: 250,
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Password',
-              ),
-            ),
+
+      Container(
+        padding: EdgeInsets.all(10),
+        child: TextField(
+          controller: nameController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(), labelText: 'User Name'),
           ),
         ),
-        Container(
-        ElevatedButton(
-        onPressed: () {
-    if (password == password) {
-    Navigator.pushNamed(
-    context,
-    '/Second',
-    arguments: username,
-    );
-    }
-    },
-    child: Text('Login'),
-    ),
-    ],
+
+      Container(
+        padding: EdgeInsets.all(10),
+        child: TextField(
+          controller: passwordController,
+          decoration: InputDecoration(
+              border: OutlineInputBorder(), labelText: 'Password'),
+        ),
+      ),
+
+      TextButton(onPressed: () {}, child: Text('Forgot Password')),
+      Container(
+        height: 50,
+        padding: EdgeInsets.all(10),
+        child: TextField(
+          controller: nameController,
+          decoration: InputDecoration(
+              border: OutlineInputBorder(), labelText: 'User Name'),
+        ),
+      ),
+
       ),
     );
   }
 }
+
 
 
 
 class SecondScreen extends StatelessWidget {
+  final String login;
+  final String password;
+  const SecondScreen(this.login, this.password, {super.key});
+
   @override
   Widget build(BuildContext context) {
-    final username =
-        ModalRoute.of(context)?.settings.arguments as String? ?? "";
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome'),
+      appBar: AppBar(title: Text('Second Screen'),),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Login : $login'),
+            Text(('Password : $password'))
+          ],
+        ),
       ),
-      body: Text("Hi $username !"),
     );
   }
 }
