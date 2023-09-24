@@ -1,0 +1,178 @@
+Activity 1:
+
+Review Questions 1-30 from Chapter1:
+1-
+HTTP
+
+2 -
+SSL and TLS
+
+3 -
+Web server
+
+4 -
+POP3
+
+5 -
+IMAP4 
+
+6 -
+Telnet 
+
+7 -
+Remote Desktop
+
+8 -
+Remote Desktop Services
+
+9 -
+d. Conversational voice, streaming live audio and voice, and streaming stored audio and voice.
+
+10 -
+RTP 
+
+11 -
+client-server networking model
+this model, the computer serving data provides resources or services to the other computers on the network.
+
+12 -
+ client-server networking model more robustly than before.
+
+13 -
+Active Directory Database
+
+14 -
+ Star Topology
+
+15 -
+Extended Star Topology or a Hierarchical Star Topology
+
+16 -
+A Layer 2 switch operates at the data link layer (Layer 2) of the OSI model and makes forwarding decisions based on MAC addresses, while a router operates at the network layer (Layer 3) and makes forwarding decisions based on IP addresses, allowing it to interconnect different IP networks.
+
+17 -
+A host is a specific type of node that refers to a device, such as a computer or server, connected to a network, while a node is a more general term that encompasses any device or point in a network, including routers, switches, and other infrastructure components in addition to hosts.
+
+18 -
+MAN typically covers a city or a large campus, while a WAN spans larger geographic areas, often encompassing multiple cities, regions, or even countries.
+
+19 -
+- A message delivered by TCP is called a **"TCP segment"**.
+- A message delivered by UDP is called a **"UDP datagram"**.
+- Both TCP and UDP operate at the **transport layer** (Layer 4) of the OSI model.
+
+20 -
+port number
+
+21 -
+UDP is typically used for streaming live video due to its lower latency compared to TCP, prioritizing speed over error-checking.
+
+22 -
+packet
+
+23 -
+IP (Internet Protocol).
+
+24 -
+IP address
+
+25 -
+frame
+
+26 -
+MAC address
+
+27 -
+To  prevents static electricity from damaging sensitive components by safely dissipating any static charge.
+
+28 -
+ Physical layer of the OSI model to troubleshoot this problem when checking the LED lights near the computer's network port.
+
+The network adapter (or NIC - Network Interface Card) works at both the Data Link layer (Layer 2) and the Physical layer (Layer 1) of the OSI model.
+
+29 -
+Application layer.
+Issues related to accessing specific websites are often application-level problems
+
+30 -
+the Transport layer.
+Skype itself operates at the Application layer. The reliability of Skype connections is influenced by the underlying transport protocols like TCP and UDP
+
+------------------
+Review Questions 1-30 from Chapter 2:
+
+
+1. The OUI
+2. 255
+3. Default gateway
+4. SMTP is a connection-based protocol that uses TCP
+5. FE80::/10
+6. The secondary and primary DNS servers, because the secondary server is requesting zone transfers from the primary server
+7. Because no device can have this given IP address, no devices receive the transmission
+8. ipconfig/release
+9. Root servers
+10. CIFS (Common Internet File System)
+11. Default port: 3389; Private port range: 49152-65535
+12. MX (Mail Exchanger) record
+13. 128 bits
+14. 546 (UDP)
+15. EUI-64 (Extended Unique Identifier-64)
+16. POP3 (Post Office Protocol version 3)
+17. NAT (Network Address Translation)
+18. Decrease the DHCP lease time
+19. 169.254.0.1 to 169.254.255.254
+20. `ipconfig` (Windows) or `ifconfig` (Linux/Unix) to set the DNS server IP address
+21. Port 21
+22. `arp -a` (Windows) or `arp -n` (Linux/Unix) to view the ARP table
+23. IPv4 loopback address: 127.0.0.1; IPv6 loopback address: ::1
+24. `ifconfig` or `ip addr` (Linux/Unix)
+25. You need at least one public IP address for SNAT and PAT to share among the five clients.
+26. `ping JSMITH` (to resolve the hostname to an IP address)
+27. Use a packet analyzer such as Wireshark to capture and analyze NetBIOS traffic.
+28. SIP (Session Initiation Protocol), H.323, MGCP.
+29. Windows: Use `ping -6` for IPv6 addresses; Linux: Use `ping6` for IPv6 addresses.
+30. Protocol: HTTP (Port 80); Command-line utility: `netstat -an` or `ss` to view active network connections. Use a DNS lookup tool to find out who the host is.
+
+---------------------------------------------------------------------------------------------------------------------------------
+Activity 2:
+
+Project 2-1: Create a NAT Translation Table Entry:
+
+1. What is the router’s outside interface IP address?
+   - The router's outside interface IP address is 92.110.30.65.
+
+2. What is the router’s inside interface IP address?
+   - The router's inside interface IP address is 192.168.11.254.
+
+3. What is the Web site’s public IP address?
+   - The Web site's public IP address is 92.110.30.123.
+
+4. What is the private IP address of the backup Web server?
+   - The private IP address of the backup Web server is 192.168.11.110.
+
+NAT translation table entries:
+
+ip nat inside source static 192.168.11.100 92.110.30.123
+ip nat inside source static 192.168.11.110 92.110.30.123
+
+
+In these entries:
+- The first entry maps the private IP address 192.168.11.100 to the public IP address 92.110.30.123. This is the original Web server.
+- The second entry maps the private IP address 192.168.11.110 (backup Web server) to the same public IP address 92.110.30.123.
+
+With these NAT translation entries, requests to 92.110.30.123 will be redirected to either the original Web server (192.168.11.100) or the backup Web server (192.168.11.110) depending on their availability.
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+Activity 3:
+
+Project 2-3: Manage DNS:
+
+step 2:
+
+i only found "autopush.prod.mozaws.net" which is related to Mozilla as i use Firefox
+
+step 7:
+I only see two items.
+it could be due to a combination of factors, including DNS cache expiration, browser-level caching, and the use of local DNS servers.
+
