@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "Laptop 1",
+      "name": "Macintosh",
+      "description": "Apple PC"
+    },
+    {
+      "id": "Laptop 2",
+      "name": "Macintosh",
+      "description": "Apple PC"
+    },
+    {
+      "id": "Laptop 3",
+      "name": "Linux",
+      "description": "Debian PC"
+    }
+
+  ]
+}
